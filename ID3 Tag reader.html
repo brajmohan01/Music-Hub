@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ID3 Tag Reader (MP3)</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      padding: 20px;
+      max-width: 600px;
+      margin: auto;
+    }
+    input {
+      margin-bottom: 20px;
+    }
+    img {
+      max-width: 100%;
+      margin-top: 20px;
+      border: 1px solid #ccc;
+    }
+    pre {
+      background: #f4f4f4;
+      padding: 10px;
+      border: 1px solid #ccc;
+      white-space: pre-wrap;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>ID3 Tag Reader</h1>
+  <input type="file" accept="audio/mpeg" id="mp3Input" />
+  <div id="output">
+    <img id="cover" style="display:none;" />
+    <pre id="meta">Select an MP3 file to read ID3 metadata...</pre>
+  </div>
+
+  <!-- ✅ Load jsmediatags -->
+  <script src="https://cdn.jsdelivr.net/npm/jsmediatags@3.9.7/dist/jsmediatags.min.js"></script>
+
+  <script>
+    const input = document.getElementById('mp3Input');
+    const metaDisplay = document.getElementById('meta');
+    const coverImg = document.getElementById('cover');
+
+    input.addEventListener('change', function () {
+      const file = this.files[0];
+      if (!file) return;
+
+      jsmediatags.read(file, {
+        onSuccess: function(tag) {
+          const tags = tag.tags;
+
+          // Show metadata
+          const result = {
+            Title: tags.title || 'Unknown',
+            Artist: tags.artist || 'Unknown',
+            Album: tags.album || 'Unknown',
+            Year: tags.year || 'Unknown',
+            Genre: tags.genre || 'Unknown',
+          };
+          metaDisplay.textContent = JSON.stringify(result, null, 2);
+
+          // Show cover art
+          if (tags.picture) {
+            const { data, format } = tags.picture;
+            let byteArray = new Uint8Array(data);
+            let blob = new Blob([byteArray], { type: format });
+            let url = URL.createObjectURL(blob);
+            coverImg.src = url;
+            coverImg.style.display = 'block';
+          } else {
+            coverImg.style.display = 'none';
+          }
+        },
+        onError: function(error) {
+          console.error("Error reading ID3 tags:", error);
+          metaDisplay.textContent = "❌ Failed to read ID3 tags.";
+          coverImg.style.display = 'none';
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>

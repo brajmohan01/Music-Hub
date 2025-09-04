@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Hub</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jsmediatags/3.9.5/jsmediatags.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            padding: 20px;
+            background-color: #f9f9f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1,
+        h2,
+        h3 {
+            color: #2c3e50;
+        }
+
+        .container {
+            max-width: 70vw;
+            margin: 30px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        code {
+            background-color: #eee;
+            padding: 2px 5px;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="overlay" class="overlay"></div>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <div style="display: flex; align-items: center;">
+                <button class="hamburger-btn" id="hamburger-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="3" y1="12" x2="21" y2="12"></line>
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <line x1="3" y1="18" x2="21" y2="18"></line>
+                    </svg>
+                </button>
+                <a href="#" class="nav-logo"><img src="image.png" alt=""> Music Hub</a>
+            </div>
+            <div class="nav-links">
+                <a href="#" class="nav-link">BMS</a>
+                <a href="index.html" class="nav-link">Explore</a>
+                <a href="about.html" class="nav-link active">About Us</a>
+            </div>
+        </div>
+    </nav>
+
+
+
+    <div class="container">
+        <h1>🎵 About – Music Hub</h1>
+
+        <p><strong>Music Hub</strong> is a lightweight, responsive web-based music player built as part of my
+            learning journey through the <strong>CodeWithHarry - Sigma Web Development Course</strong>. This project helped me
+            strengthen my skills in <strong>HTML</strong>, <strong>CSS</strong>, <strong>JavaScript</strong>, and
+            working with <strong>local files</strong> and <strong>server-side content</strong>.</p>
+
+        <h2>💡 Project Purpose</h2>
+        <p>The primary goal of this project was to gain hands-on experience with:</p>
+        <ul>
+            <li>Building a user-friendly UI with HTML & CSS</li>
+            <li>Using JavaScript to interact with files and media elements</li>
+            <li>Integrating local and server-side music sources</li>
+            <li>Practicing DOM manipulation and event handling</li>
+        </ul>
+
+        <h2>🔧 Features</h2>
+        <ul>
+            <li>🎧 <strong>Play Local Files</strong>: Upload and play your own music directly in the browser</li>
+            <li>🌐 <strong>Stream Server Songs</strong>: Listen to music hosted on the web server</li>
+            <li>⏯️ <strong>Play, Pause, Next, Previous</strong>: Full control over playback</li>
+            <li>🕒 <strong>Progress Bar & Time</strong>: Shows current and total duration</li>
+            <li>📱 <strong>Responsive Design</strong>: Works on all screen sizes</li>
+        </ul>
+
+        <h2>⚙️ How It Works – Behind the Scenes</h2>
+        <h3>1. HTML Structure</h3>
+        <p>Clean layout using semantic HTML. Sections for player, controls, and playlist.</p>
+
+        <h3>2. CSS Styling</h3>
+        <p>Styled using Flexbox and modern CSS for a responsive and minimal interface.</p>
+
+        <h3>3. JavaScript Logic</h3>
+        <ul>
+            <li>Uses <code>&lt;input type="file"&gt;</code> and FileReader API to handle local uploads</li>
+            <li>Predefined server songs are loaded into an array and played on demand</li>
+            <li>Audio controls and UI synced using event listeners and the Audio API</li>
+        </ul>
+
+        <h3>4. Hosting Server Songs</h3>
+        <p>Server songs are stored in a public directory (e.g., <code>/songs/</code>) and dynamically listed in the
+            player.</p>
+
+        <h2>📚 What I Learned</h2>
+        <ul>
+            <li>Working with the HTML5 Audio API</li>
+            <li>Handling local files in the browser</li>
+            <li>Creating interactive interfaces with JS</li>
+            <li>Syncing UI elements with audio playback events</li>
+        </ul>
+
+        <h2>👨‍💻 Tech Stack</h2>
+        <ul>
+            <li>HTML5</li>
+            <li>CSS3</li>
+            <li>JavaScript (Vanilla)</li>
+            <li>(Optional) Node.js/Express for server hosting</li>
+        </ul>
+
+        <h2>🚀 Try It Out</h2>
+        <p>You can upload your favorite MP3s or play songs from the default list to enjoy music directly in your
+            browser!</p>
+    </div>
+</body>
+
+</html>
